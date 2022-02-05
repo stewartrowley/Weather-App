@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/weather.css' %}">
+    <title>Weather</title>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <a href="index.html"><li>Home</li></a>
+            <a href="weather.html"><li>Rexburg</li></a>
+        </ul>
+    </nav>
+
+    <h1>Rexburg</h1>
+
+    <div class="wrapper">
+        <img class="img" src="{% static 'images/rexburg-temple.jpg' %}" alt="">
+
+        <div class="city-content">
+            <p>{{ city_weathered.city }}</p>         
+            <img src="http://openweathermap.org/img/w/{{ city_weathered.icon }}.png" alt="Image">
+            <p>{{ city_weathered.main }}</p>
+            <p>Wind Speed: {{ city_weathered.windspeed }} mph</p>
+            <p>Wind Gust: {{ city_weathered.windgust }} mph</p>
+            <p>Humidity: {{ city_weathered.humidity }}%</p>
+            <p>Temperature: {{ city_weathered.temperature }}&#176; F</p>
+            <p>Temperature Min: {{ city_weathered.temp_min }}&#176; F</p>
+            <p>Temperature Max: {{ city_weathered.temp_max }}&#176; F</p>           
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>Stewart Rowley | BYU-Idaho</p>
+    </footer>
+    
+</body>
+</html>

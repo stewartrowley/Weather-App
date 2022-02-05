@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <title>Weather</title>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <a href="index.html"><li>Home</li></a>
+            <a href="weather.html"><li>Rexburg</li></a>
+        </ul>
+    </nav>
+
+    <h1>Find your Weather</h1>
+    <script>document.getElementsByTagName(FormData).reset() </script>
+    <form method="POST" id="form" autocomplete="off">
+        <div class="main">
+            <div class="place">
+                {{ form.name }}
+            </div>
+
+            {% csrf_token %}
+
+            <button type="submit" class="button-is-info"> Add City</button>
+            <!-- <button type="submit" class="button is-delete">Remove City</button> -->
+        </div>
+    </form>
+
+    <div class="wrapper">
+        {% for city_weather in weather %}
+        <div class="city-content">
+            
+            <img src="http://openweathermap.org/img/w/{{ city_weather.icon }}.png" alt="Image">
+
+            <p>{{ city_weather.city }}</p>
+            <p>{{ city_weather.windspeed }} mph</p>
+            <p>{{ city_weather.temperature }}&#176; F</p>
+            <p>{{ city_weather.description }}</p>
+            
+        </div>
+        {% endfor %}
+    </div>
+
+    
+</body>
+</html>
