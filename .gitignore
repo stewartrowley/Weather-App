@@ -129,5 +129,4 @@ dmypy.json
 .pyre/
 
 # url
-url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid=483394b5f70d404d21682ecd4208e8a0'
- url = 'http://api.openweathermap.org/data/2.5/weather?q=Rexburg&units=imperial&appid=483394b5f70d404d21682ecd4208e8a0'
+views.py
